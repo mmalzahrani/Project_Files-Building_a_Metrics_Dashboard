@@ -51,14 +51,14 @@ Metrics that measure how close a service is to meeting its SLOs. SLIs are typica
 ![Jaeger_tracing_span_Error](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/13de6dfc-a928-4f94-b4a9-df05758a6195)
 
 Python span endpoint code
-''' python
+```python 
 # Tracer error
 @app.route('/errortrace')
 @by_endpoint_counter
 def errortrace():
     with tracer.start_span('errortrace'):
         return "Bad Request", 400
-'''
+```
 
 ## Jaeger in Dashboards
 *TODO:* Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
