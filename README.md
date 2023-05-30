@@ -1,20 +1,34 @@
 **Note:** For the screenshots, you can store all of your answer images in the `answer-img` directory.
 
 ## Verify the monitoring installation
+![All-pods-svcs](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/909cec2b-4bea-4f77-9691-24be07196c31)
 
-*TODO:* run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
 
 ## Setup the Jaeger and Prometheus source
-*TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
+![Grafana_homepage](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/2ddb4697-6862-4f48-ab76-6f24d9e77283)
+
+
+![Grafana_Data_Sources](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/761b2b0d-8295-47c3-9663-3e3aeeaf4c27)
+
 
 ## Create a Basic Dashboard
-*TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
+![Grafana_Dashboard_Prometheus](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/eb71cf0e-7b4f-4454-b52e-08de1385d156)
+
 
 ## Describe SLO/SLI
-*TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+Service level objectives (SLO):
+Targets for service reliability. They define the acceptable levels of performance, availability, and other metrics for a service. SLOs are typically expressed as a percentage or a number of errors per unit of time.
+
+Service level indicators (SLI):
+Metrics that measure how close a service is to meeting its SLOs. SLIs are typically quantitative metrics, such as uptime, response time, or error rate.
+
 
 ## Creating SLI metrics.
-*TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+Uptime: The percentage of time that a service is available.
+Error rate: The percentage of requests that result in an error.
+Utilization: The percentage of resources utility.
+Latency: The time it takes for a request to travel from the client to the server and back.
+Bandwidth: The amount of data that can be transferred between the client and the server per second.
 
 ## Create a Dashboard to measure our SLIs
 *TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
