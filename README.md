@@ -51,7 +51,7 @@ Metrics that measure how close a service is to meeting its SLOs. SLIs are typica
 ![Jaeger_tracing_span_Error](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/13de6dfc-a928-4f94-b4a9-df05758a6195)
 
 Python span endpoint code
-''' code()
+''' python
 # Tracer error
 @app.route('/errortrace')
 @by_endpoint_counter
