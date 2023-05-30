@@ -1,53 +1,107 @@
 **Note:** For the screenshots, you can store all of your answer images in the `answer-img` directory.
 
 ## Verify the monitoring installation
+![All-pods-svcs](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/909cec2b-4bea-4f77-9691-24be07196c31)
 
-*TODO:* run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
 
 ## Setup the Jaeger and Prometheus source
-*TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
+![Grafana_homepage](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/2ddb4697-6862-4f48-ab76-6f24d9e77283)
+
+
+![Grafana_Data_Sources](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/761b2b0d-8295-47c3-9663-3e3aeeaf4c27)
+
 
 ## Create a Basic Dashboard
-*TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
+![Grafana_Dashboard_Prometheus](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/eb71cf0e-7b4f-4454-b52e-08de1385d156)
+
 
 ## Describe SLO/SLI
-*TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+Service level objectives (SLO):
+Targets for service reliability. They define the acceptable levels of performance, availability, and other metrics for a service. SLOs are typically expressed as a percentage or a number of errors per unit of time.
+
+Service level indicators (SLI):
+Metrics that measure how close a service is to meeting its SLOs. SLIs are typically quantitative metrics, such as uptime, response time, or error rate.
+
 
 ## Creating SLI metrics.
-*TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+- Uptime: The percentage of time that a service is available.
+- Error rate: The percentage of requests that result in an error.
+- Utilization: The percentage of resources utility.
+- Latency: The time it takes for a request to travel from the client to the server and back.
+- Bandwidth: The amount of data that can be transferred between the client and the server per second.
 
 ## Create a Dashboard to measure our SLIs
-*TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
+### Uptime
+![Uptime](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/c8345433-31bd-479d-b330-d69e9d8ddf7a)
+
+### Error Rate
+![Error_rate](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/30fa881d-7a82-4f08-b15e-97a56458655e)
+
+### Utilization
+![Utilization](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/7e099cdf-908d-4234-8dad-66936407b2a7)
+
+### Latency
+![Latency](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/ce034130-44f4-4120-a5b9-8f31b14403c9)
+
+### Bandwidth
+![Bandwidth](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/f92cc161-5689-494d-a02a-9b4c655a0b4c)
+
 
 ## Tracing our Flask App
-*TODO:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here. Also provide a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
+![Jaeger_tracing_span_Error](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/13de6dfc-a928-4f94-b4a9-df05758a6195)
+
+Python span endpoint code
+```python 
+# Tracer error
+@app.route('/errortrace')
+@by_endpoint_counter
+def errortrace():
+    with tracer.start_span('errortrace'):
+        return "Bad Request", 400
+```
 
 ## Jaeger in Dashboards
-*TODO:* Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
+![Jaeger_Dashboard](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/d70464f6-66e6-44b6-8f5d-00ccceba533e)
+
 
 ## Report Error
-*TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
 
 TROUBLE TICKET
 
-Name:
+Name: 400 BAD REQUEST on /errortrace backend app
 
-Date:
+Date: Tue, 30 May 2023 17:31:29 GMT
 
-Subject:
+Subject: API endpoint BAD REQUEST
 
-Affected Area:
+Affected Area: Backend app
 
-Severity:
+Severity: High
 
-Description:
+Description: The calls in backend get Bad requests
 
 
 ## Creating SLIs and SLOs
-*TODO:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
+- SLI: The average response time for page requests will be less than 1 second.
+- SLO: The service will be available 98.9% of the time.
+- SLI: The number of requests that take more than 100 milliseconds to load will be less than 1% of the total number of requests in a month.
+- SLO: The website will be available for at least 99.9% of the time in a month.
+- SLI: The number of 5xx, 4xx errors per day will be less than 10.
+- SLO: The number of page requests per second will be greater than 1000.
+- SLI: The number of errors returned by a web service will be less than 0.1% of the total number of requests in a month.
+- SLO: The average latency for a page load will be less than 100 milliseconds.
+
 
 ## Building KPIs for our plan
-*TODO*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
+- The number of minutes of downtime per month.
+- The number of 500 errors per month.
+- The number of errors returned by a web service per month.
 
 ## Final Dashboard
-*TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
+![Final_Dashboard](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/db2571a7-b362-4434-960f-52a9a4665e14)
+
+- Uptime: The percentage of time that a service is available.
+- Error rate: The percentage of requests that result in an error.
+- 40x 50x Error: The number of 5xx, 4xx errors
+- Tracing ALL: The time it takes for a request to travel from the client to the server and back.
+
