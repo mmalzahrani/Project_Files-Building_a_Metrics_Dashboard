@@ -1,0 +1,32 @@
+
+Service level objectives (SLO):
+Targets for service reliability. They define the acceptable levels of performance, availability, and other metrics for a service. SLOs are typically expressed as a percentage or a number of errors per unit of time.
+
+Service level indicators (SLI):
+Metrics that measure how close a service is to meeting its SLOs. SLIs are typically quantitative metrics, such as uptime, response time, or error rate.
+
+
+SLI metrics
+Uptime: The percentage of time that a service is available.
+Error rate: The percentage of requests that result in an error.
+Utilization: The percentage of resources utility.
+Latency: The time it takes for a request to travel from the client to the server and back.
+Bandwidth: The amount of data that can be transferred between the client and the server per second.
+
+
+
+Report Error:
+TROUBLE TICKET
+Name: 400 BAD REQUEST on /errortrace backend app
+Date: Tue, 30 May 2023 17:31:29 GMT
+Subject: API endpoint BAD REQUEST
+Affected Area: Backend app
+Severity: HIGH
+Description: The calls in backend get Bad requests
+
+
+Creating SLOs and SLIs:
+SLI: The average response time for page requests will be less than 1 second.
+SLO: The service will be available 98.9% of the time.
+SLI: The number of 5xx, 4xx errors per day will be less than 10.
+SLO: The number of page requests per second will be greater than 1000.
