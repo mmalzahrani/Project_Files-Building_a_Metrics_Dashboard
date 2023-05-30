@@ -24,17 +24,40 @@ Metrics that measure how close a service is to meeting its SLOs. SLIs are typica
 
 
 ## Creating SLI metrics.
-Uptime: The percentage of time that a service is available.
-Error rate: The percentage of requests that result in an error.
-Utilization: The percentage of resources utility.
-Latency: The time it takes for a request to travel from the client to the server and back.
-Bandwidth: The amount of data that can be transferred between the client and the server per second.
+- Uptime: The percentage of time that a service is available.
+- Error rate: The percentage of requests that result in an error.
+- Utilization: The percentage of resources utility.
+- Latency: The time it takes for a request to travel from the client to the server and back.
+- Bandwidth: The amount of data that can be transferred between the client and the server per second.
 
 ## Create a Dashboard to measure our SLIs
-*TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
+### Uptime
+![Uptime](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/c8345433-31bd-479d-b330-d69e9d8ddf7a)
+
+### Error Rate
+![Error_rate](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/30fa881d-7a82-4f08-b15e-97a56458655e)
+
+### Utilization
+![Utilization](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/7e099cdf-908d-4234-8dad-66936407b2a7)
+
+### Latency
+![Latency](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/ce034130-44f4-4120-a5b9-8f31b14403c9)
+
+### Bandwidth
+![Bandwidth](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/f92cc161-5689-494d-a02a-9b4c655a0b4c)
+
 
 ## Tracing our Flask App
-*TODO:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here. Also provide a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
+![Jaeger_tracing_span_Error](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/13de6dfc-a928-4f94-b4a9-df05758a6195)
+
+Python span endpoint code
+'''# Tracer error
+@app.route('/errortrace')
+@by_endpoint_counter
+def errortrace():
+    with tracer.start_span('errortrace'):
+        return "Bad Request", 400
+'''
 
 ## Jaeger in Dashboards
 *TODO:* Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
