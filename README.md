@@ -48,7 +48,8 @@ Metrics that measure how close a service is to meeting its SLOs. SLIs are typica
 
 
 ## Tracing our Flask App
-![Jaeger_tracing_span_Error](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/13de6dfc-a928-4f94-b4a9-df05758a6195)
+![Jaeger_tracing_span_Error](https://github.com/mmalzahrani/Project_Files-Building_a_Metrics_Dashboard/assets/27856878/3f6c3760-554e-4808-b0a9-5071bb24c8b7)
+
 
 Python span endpoint code
 ```python 
