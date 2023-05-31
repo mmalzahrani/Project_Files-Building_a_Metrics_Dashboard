@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, Response
 import time
 import random
 import pymongo
@@ -120,7 +120,7 @@ def healthcheck():
 @by_endpoint_counter
 def errortrace():
     with tracer.start_span('errortrace'):
-        return "Bad Request", 400
+        raise InvalidHandle('Internal Error', status_code=500)
 
 if __name__ == "__main__":
     app.run(threaded=True)
